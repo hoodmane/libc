@@ -29,7 +29,7 @@ pub type clock_t = c_long;
 #[cfg("emscripten_64_bit_time_t")]
 pub type time_t = i64;
 #[cfg(not("emscripten_64_bit_time_t"))]
-pub type time_t = c_long;
+pub type time_t = i32;
 
 pub type suseconds_t = c_long;
 pub type ino_t = u64;
