@@ -56,9 +56,11 @@ fn main() {
     }
 
     match emcc_version_code() {
-        Some(v) if (v >= 30142) => set_cfg("emscripten_new_stat_abi"),
-        Some(v) if (v >= 30116) => {
+        Some(v) if (v >= 30142) => {
             set_cfg("emscripten_new_stat_abi");
+            set_cfg("emscripten_64_bit_time_t");
+        }
+        Some(v) if (v >= 30116) => {
             set_cfg("emscripten_64_bit_time_t");
         }
         // Non-Emscripten or version < 3.1.42.
